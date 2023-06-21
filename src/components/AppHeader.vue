@@ -3,7 +3,8 @@
     <div class="navbar__inner">
       <div class="leftside">
         <img class="navbar__left-arrow" src="./../assets/arrow-left.svg" alt="arrow-left">
-        <img src="./../assets/logo.png" alt="logo">
+        <img class="navbar__logo-mobile" src="./../assets/logo-mobile.svg" alt="logo-mobile">
+        <img class="navbar__logo" src="./../assets/logo.png" alt="logo">
       </div>
       <div class="navbar__rightside">
         <img src="./../assets/notification.svg" alt="ring">
@@ -25,6 +26,16 @@ export default {
 .navbar {
   background-color: #1E3554;
   height: 80px;
+
+  @media screen and (max-width: 600px) {
+    width: 100%
+  }
+
+
+
+  &__logo-mobile {
+    display: none;
+  }
 
   &__inner {
     display: flex;
@@ -56,6 +67,18 @@ export default {
     border: solid 1px;
     border-color: #1E3554;
     color: white;
+  }
+
+  @media (max-width:375px) {
+    width: 100%;
+
+    &__logo {
+      display: none;
+    }
+
+    &__logo-mobile {
+      display: inline-block;
+    }
   }
 }
 </style>

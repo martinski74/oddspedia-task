@@ -31,6 +31,7 @@
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 
+
     &__level {
         font-size: 10px;
         font-family: sans-serif;
@@ -58,6 +59,7 @@
         font-size: 11px;
         margin-right: 25px;
         font-family: 'Roboto', sans-serif;
+        padding-top: 5px;
 
     }
 
@@ -71,7 +73,8 @@
     a:active {
 
         color: white;
-        border-bottom: 2px solid #00B1FF;
+        border-bottom: 3px solid #00B1FF;
+        padding-bottom: 9px;
     }
 
     &__name {
@@ -80,6 +83,34 @@
         font-size: 16px;
         font-weight: 700;
         font-family: 'Montserrat';
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 100%
+    }
+
+
+    @media (max-width:375px) {
+        & {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+            margin-top: 0;
+        }
+
+        &__name {
+            position: absolute;
+            top: 30px;
+            left: 38%;
+        }
+
+        &__img {
+            display: block;
+            margin: auto;
+        }
+
+        &__level {
+            text-align: center;
+        }
     }
 
 }
