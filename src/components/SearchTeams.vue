@@ -6,11 +6,63 @@
             <input type="text" placeholder="Search for a team">
             <img class="container__close" src="./../assets/close.svg" alt="close">
         </div>
-        <div class="container__results"></div>
+        <div class="container__results">
+            <TeamsList :teams="teams" />
+        </div>
     </div>
 </template>
 
-<script></script>
+<script>
+import TeamsList from './TeamsList.vue';
+export default {
+    components: {
+        TeamsList
+    },
+    data() {
+        return {
+            teams: [
+                {
+                    "id": 1,
+                    "name": "Real Madrid",
+                    "stadium": "Estadio Alfredo Di Stefano",
+                    "leagues": [
+                        "Primera Division",
+                        "Champions League"
+                    ],
+                    "is_following": false
+                },
+                {
+                    "id": 3,
+                    "name": "Barcelona",
+                    "stadium": "Camp Nou",
+                    "leagues": [
+                        "Primera Division",
+                        "Champions League"
+                    ],
+                    "is_following": false
+                },
+                {
+                    "id": 40,
+                    "name": "Villarreal",
+                    "stadium": "Estadio de La Ceramica",
+                    "leagues": [
+                        "Primera Division",
+                        "Europa League"
+                    ],
+                    "is_following": false
+                },
+
+
+            ]
+        }
+    },
+    methods: {
+
+    }
+
+
+}
+</script>
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -58,8 +110,19 @@
 
     &__close {
         position: relative;
-        left: 34em;
+        left: 95%;
         top: -26px;
     }
+
+    @media screen and (max-width: 600px) {
+        width: 100%
+    }
+
+    @media (max-width:375px) {
+        &__close {
+            left: 92%;
+        }
+    }
+
 }
 </style>

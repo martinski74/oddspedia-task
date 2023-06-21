@@ -44,5 +44,9 @@
         font-family: 'Roboto';
         font-size: 12px;
     }
+
+    @media screen and (max-width: 600px) {
+        width: 100%
+    }
 }
 </style>
