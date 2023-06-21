@@ -2,15 +2,14 @@
     <div class="outher">
         <div class="outher__avatar">
             <img class="outher__img" src="./../assets/avatar.png" alt="user">
-            <div>
+            <div class="outher__name">
                 RichyRich
             </div>
         </div>
         <div class="outher__level">Level 5</div>
         <ul class="outher__navigation">
-
             <li class="outher__nav-item">
-                <router-link exact to="/home">MY TEAMS</router-link>
+                <router-link to="/">MY TEAMS</router-link>
             </li>
             <li class="outher__nav-item">
                 <router-link to="/about">ABOUT</router-link>
@@ -60,11 +59,27 @@
         margin-right: 25px;
         font-family: 'Roboto', sans-serif;
 
-        a {
-            text-decoration: none;
-            color: white;
-        }
+    }
 
+    a {
+        text-decoration: none;
+        color: #6F8CAA;
+    }
+
+
+    a.router-link-active,
+    a:active {
+
+        color: white;
+        border-bottom: 2px solid #00B1FF;
+    }
+
+    &__name {
+        font-size: 16px;
+        font-style: italic;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Montserrat';
     }
 
 }
