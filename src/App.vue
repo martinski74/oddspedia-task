@@ -7,13 +7,22 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import NavBar from './components/NavBar.vue';
-
+import { mapActions } from 'vuex'
 export default {
   components: {
     AppHeader,
     NavBar,
 
+  },
+  methods: {
+    ...mapActions(['getTeams']),
+
+  },
+  async created() {
+    await this.getTeams()
+
   }
+
 
 }
 </script>

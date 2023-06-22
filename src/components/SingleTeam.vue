@@ -54,6 +54,7 @@ export default {
     &__info {
         display: flex;
         color: #6F8CAA;
+        cursor: pointer;
     }
 
     &__img-holder {
@@ -73,6 +74,7 @@ export default {
         border-radius: 15px;
         font-family: 'Roboto';
         font-size: 12px;
+        cursor: pointer;
     }
 
     &__team-name {
@@ -86,6 +88,7 @@ export default {
         background-color: white;
         color: #00B1FF;
         border: 1px solid #00B1FF;
+        font-weight: 600;
     }
 }
 </style>

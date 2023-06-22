@@ -3,61 +3,41 @@
         <h2 class="container__search-heading">SEARCH TEAMS</h2>
         <div class="container__search">
             <img class="container__icon-search" src="./../assets/search.svg" alt="serach">
-            <input type="text" placeholder="Search for a team">
+            <input v-model="input" type="text" placeholder="Search for a team">
             <img class="container__close" src="./../assets/close.svg" alt="close">
         </div>
-        <div class="container__results">
-            <TeamsList :teams="teams" />
+        <div v-if="myList" class="container__results">
+            <TeamsList :teams="filteredList" />
         </div>
     </div>
 </template>
 
 <script>
 import TeamsList from './TeamsList.vue';
+import { mapState } from 'vuex'
 export default {
     components: {
         TeamsList
     },
     data() {
         return {
-            teams: [
-                {
-                    "id": 1,
-                    "name": "Real Madrid",
-                    "stadium": "Estadio Alfredo Di Stefano",
-                    "leagues": [
-                        "Primera Division",
-                        "Champions League"
-                    ],
-                    "is_following": false
-                },
-                {
-                    "id": 3,
-                    "name": "Barcelona",
-                    "stadium": "Camp Nou",
-                    "leagues": [
-                        "Primera Division",
-                        "Champions League"
-                    ],
-                    "is_following": false
-                },
-                {
-                    "id": 40,
-                    "name": "Villarreal",
-                    "stadium": "Estadio de La Ceramica",
-                    "leagues": [
-                        "Primera Division",
-                        "Europa League"
-                    ],
-                    "is_following": false
-                },
+            input: '',
+            myList: []
+        }
+    },
+    computed: {
+        ...mapState(['teams']),
+        filteredList() {
 
-
-            ]
+            return this.teams.filter(team => team.name.startsWith(this.input.toLowerCase()))
         }
     },
     methods: {
 
+    },
+    mounted() {
+        this.teams.map(team => this.myList.push(team))
+        console.log('myList ', this.myList);
     }
 
 
