@@ -9,7 +9,7 @@
         <div v-if="showResults" class="container__results">
             <TeamsList :teams="filteredResults" />
         </div>
-        <div v-if="!searchResults" class="container__no-results">
+        <div v-if="filteredResults === null" class="container__no-results">
             <NoTeamsFound />
         </div>
     </div>
@@ -37,8 +37,8 @@ export default {
         },
         filteredResults() {
             return this.teams.filter(team =>
-                team.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-                team.stadium.toLowerCase().includes(this.searchQuery.toLowerCase())
+                team.name.toLowerCase().startsWith(this.searchQuery.toLowerCase()) ||
+                team.stadium.toLowerCase().startsWith(this.searchQuery.toLowerCase())
             );
         }
     },

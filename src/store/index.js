@@ -9,15 +9,14 @@ export default createStore({
   getters: {
   },
   mutations: {
-    SELECT_TEAM(state, id) {
-      const myTeam = state.teams.find(team => team.id === id);
-      state.selectedTeams.push(myTeam);
+    SELECT_TEAM(state, team) {
+      state.selectedTeams.push(team);
     },
     GET_TEAMS: (state, teams) => state.teams = teams
   },
   actions: {
-    followTeam({ commit }, id) {
-      commit('SELECT_TEAM', id)
+    followTeam({ commit }, team) {
+      commit('SELECT_TEAM', team)
     },
 
     async getTeams({ commit }) {

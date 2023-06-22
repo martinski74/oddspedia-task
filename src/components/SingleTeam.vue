@@ -1,7 +1,8 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" @mouseover="hover = true" @mouseleave="hover = false">
         <div class="wrapper__info">
-            <div class="wrapper__img-holder"><img src="./../assets/team-placeholder.png" alt="placeholder"></div>
+            <div :class="{ active: hover }" class="wrapper__img-holder"><img src="./../assets/team-placeholder.png"
+                    alt="placeholder"></div>
             <div class="info">
                 <div class="first-line">
                     {{ team.leagues.join(', ') }}
@@ -13,7 +14,7 @@
             </div>
         </div>
         <div class="follow">
-            <button :class="{ following: isFollow }" class="wrapper__follow-btn" @click="followTeam">{{ isFollow ?
+            <button :class="{ following: isFollow }" class="wrapper__follow-btn" @click="selectTeam(team)">{{ isFollow ?
                 'FOLLOWING' : 'FOLLOW'
             }}</button>
         </div>
@@ -31,12 +32,13 @@ export default {
     },
     data() {
         return {
-            isFollow: false
+            isFollow: false,
+            hover: false,
         }
     },
     methods: {
-        followTeam() {
-
+        selectTeam() {
+            this.$emit('onSelect', this.team)
             this.isFollow = !this.isFollow
         }
     }
@@ -47,6 +49,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .wrapper {
+
+    &:hover {
+        background-color: #F5F7F9;
+    }
+
+
     display: flex;
     justify-content: space-between;
     padding: 8px 0 8px 0;
@@ -64,6 +72,10 @@ export default {
         width: 40px;
         height: 40px;
         margin-right: 15px;
+    }
+
+    &__img-holder:hover {
+        background-color: white;
     }
 
     &__follow-btn {
@@ -89,6 +101,10 @@ export default {
         color: #00B1FF;
         border: 1px solid #00B1FF;
         font-weight: 600;
+    }
+
+    .active {
+        background-color: white;
     }
 }
 </style>
