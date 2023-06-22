@@ -3,11 +3,12 @@
         <h2 class="container__search-heading">SEARCH TEAMS</h2>
         <div class="container__search">
             <img class="container__icon-search" src="./../assets/search.svg" alt="serach">
-            <input v-model="input" type="text" placeholder="Search for a team">
+            <input v-model="searchQuery" type="text" placeholder="Search for a team">
             <img class="container__close" src="./../assets/close.svg" alt="close">
         </div>
-        <div v-if="myList" class="container__results">
-            <TeamsList :teams="filteredList" />
+        <div class="container__results">
+            <TeamsList :teams="resultQuery" />
+            <!-- <div v-for="r of resultQuery" :key="r.id">{{ r }}</div> -->
         </div>
     </div>
 </template>
@@ -21,23 +22,32 @@ export default {
     },
     data() {
         return {
-            input: '',
-            myList: []
+            searchQuery: null,
+
         }
     },
     computed: {
         ...mapState(['teams']),
-        filteredList() {
 
-            return this.teams.filter(team => team.name.startsWith(this.input.toLowerCase()))
+        resultQuery() {
+            if (this.searchQuery) {
+                return this.teams.filter(item => {
+
+                    return this.searchQuery
+                        .toLowerCase()
+                        .split(" ")
+                        .every(v => (item.name.toLowerCase() || item.stadium.toLowerCase()).startsWith(v));
+                });
+            } else {
+                return null
+            }
         }
     },
     methods: {
 
     },
     mounted() {
-        this.teams.map(team => this.myList.push(team))
-        console.log('myList ', this.myList);
+
     }
 
 
