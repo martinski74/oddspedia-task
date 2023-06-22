@@ -6,50 +6,46 @@
             <input v-model="searchQuery" type="text" placeholder="Search for a team">
             <img class="container__close" src="./../assets/close.svg" alt="close">
         </div>
-        <div class="container__results">
-            <TeamsList :teams="resultQuery" />
-            <!-- <div v-for="r of resultQuery" :key="r.id">{{ r }}</div> -->
+        <div v-if="showResults" class="container__results">
+            <TeamsList :teams="filteredResults" />
+        </div>
+        <div v-if="!searchResults" class="container__no-results">
+            <NoTeamsFound />
         </div>
     </div>
 </template>
 
 <script>
 import TeamsList from './TeamsList.vue';
+import NoTeamsFound from './NoTeamsFound.vue'
 import { mapState } from 'vuex'
 export default {
     components: {
-        TeamsList
+        TeamsList,
+        NoTeamsFound
     },
     data() {
         return {
-            searchQuery: null,
-
+            searchQuery: '',
+            searchResults: []
         }
     },
     computed: {
         ...mapState(['teams']),
-
-        resultQuery() {
-            if (this.searchQuery) {
-                return this.teams.filter(item => {
-
-                    return this.searchQuery
-                        .toLowerCase()
-                        .split(" ")
-                        .every(v => (item.name.toLowerCase() || item.stadium.toLowerCase()).startsWith(v));
-                });
-            } else {
-                return null
-            }
+        showResults() {
+            return this.searchQuery.length > 0;
+        },
+        filteredResults() {
+            return this.teams.filter(team =>
+                team.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                team.stadium.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
         }
     },
+
     methods: {
 
-    },
-    mounted() {
-
     }
-
 
 }
 </script>
