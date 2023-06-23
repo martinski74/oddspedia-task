@@ -10,7 +10,12 @@ export default createStore({
   },
   mutations: {
     SELECT_TEAM(state, team) {
-      state.selectedTeams.push(team);
+      if (!state.selectedTeams.includes(team)) {
+        state.selectedTeams.push(team);
+      } else {
+        const index = state.selectedTeams.indexOf(team)
+        state.selectedTeams.splice(index, 1)
+      }
     },
     GET_TEAMS: (state, teams) => state.teams = teams
   },

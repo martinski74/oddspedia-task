@@ -1,13 +1,20 @@
 <template>
     <div class="container">
         <h2 class="container__hedaing">MY TEAMS</h2>
+        <div class="container__selected-teams" v-if="selectedTeams.length > 0">
 
-        <div v-for="team in selectedTeams" :key="team.id" class="container__results">
-            {{ team.name }}
+            <div v-for="team in selectedTeams" :key="team.id" class="container__results">
+                <div class="container__image">
+                    <img src="./../assets/team-placeholder.png" alt="team">
+                </div>
+                <div class="container__name">
+                    {{ team.name }}
+                </div>
+            </div>
         </div>
-        <!-- <div v-else class="container__empty-results">
+        <div v-else class="container__empty-results">
             <p class="container__message">You aren't following any teams yet.</p>
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -37,8 +44,17 @@ export default {
         color: #1A3150;
         font-weight: bold;
         font-style: italic;
+        margin-bottom: 16px;
 
+    }
 
+    &__results {
+        display: flex;
+        align-items: center;
+        font-family: 'Roboto';
+        font-size: 14px;
+        color: #1A3150;
+        font-weight: 600;
     }
 
     &__empty-results {
@@ -53,6 +69,15 @@ export default {
         color: #6F8CAA;
         font-family: 'Roboto';
         font-size: 12px;
+    }
+
+    &__image {
+        background-color: #F5F7F9;
+        border-radius: 50%;
+        padding: 6px;
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
     }
 
     @media screen and (max-width: 600px) {
