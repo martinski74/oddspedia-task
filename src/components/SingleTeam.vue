@@ -40,6 +40,9 @@ export default {
         }
     },
     methods: {
+        checkFirstLetterCapital(_string) {
+            return /[A-Z]/.test(_string[0]);
+        },
         selectTeam() {
             this.$emit('onSelect', this.team)
             this.isFollow = !this.isFollow
@@ -47,9 +50,13 @@ export default {
         matchName(current) {
             let reggie = new RegExp(this.searchTerm, "ig");
             let found = current.search(reggie) !== -1;
-            return !found ? current : current.replace(reggie, '<span style="color:#00B1FF;">' + this.searchTerm + '</span>');
-        }
-    }
+            if (this.checkFirstLetterCapital(current)) {
+                return !found ? current : current.replace(reggie, '<span style="color:#00B1FF;">' + this.searchTerm.charAt(0).toUpperCase() + this.searchTerm.slice(1) + '</span>');
+
+            }
+        },
+
+    },
 }
 </script>
 

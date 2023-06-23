@@ -47,8 +47,8 @@ ul {
 
 #app,
 body {
-  // max-width: 1280px;
-  // margin: auto;
+  max-width: 1280px;
+  margin: auto;
   background-color: #F5F7F9;
 }
 </style>
