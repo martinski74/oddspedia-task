@@ -4,12 +4,12 @@
         <div class="container__search">
             <img class="container__icon-search" src="./../assets/search.svg" alt="serach">
             <input v-model="searchQuery" type="text" placeholder="Search for a team">
-            <img class="container__close" src="./../assets/close.svg" alt="close">
+            <img @click="resetInput" class="container__close" src="./../assets/close.svg" alt="close">
         </div>
         <div v-if="showResults" class="container__results">
             <TeamsList :teams="filteredResults" />
         </div>
-        <div v-if="filteredResults === null" class="container__no-results">
+        <div v-if="!isFound" class="container__no-results">
             <NoTeamsFound />
         </div>
     </div>
@@ -27,7 +27,8 @@ export default {
     data() {
         return {
             searchQuery: '',
-            searchResults: []
+            searchResults: [],
+            isFound: true
         }
     },
     computed: {
@@ -42,9 +43,21 @@ export default {
             );
         }
     },
+    watch: {
+        filteredResults(newValue) {
+            // if (newValue.length === 0) {
+            //     this.isFound = false
+            // } else {
+            //     this.isFound = true
+            // }
+            newValue.length === 0 ? this.isFound = false : this.isFound = true
+        }
+    },
 
     methods: {
-
+        resetInput() {
+            this.searchQuery = '';
+        }
     }
 
 }
@@ -98,6 +111,7 @@ export default {
         position: relative;
         left: 95%;
         top: -26px;
+        cursor: pointer;
     }
 
     @media screen and (max-width: 600px) {
