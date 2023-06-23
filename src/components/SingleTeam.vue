@@ -9,7 +9,7 @@
                 </div>
                 <div class="second-line">
                     <span v-html="matchName(team.name)" class="wrapper__team-name"></span> | <img
-                        src="./../assets/stadium.png" alt="stadium"> <span>{{ team.stadium }}</span>
+                        src="./../assets/stadium.png" alt="stadium"> <span v-html="matchName(team.stadium)"></span>
                 </div>
             </div>
         </div>
