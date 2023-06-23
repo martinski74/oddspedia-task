@@ -1,6 +1,6 @@
 <template>
     <div v-for="team in teams" :key="team.id" class="teamholder">
-        <SingleTeam :team="team" @onSelect="selectTeam" />
+        <SingleTeam :team="team" :searchTerm="searchTerm" @onSelect="selectTeam" />
     </div>
 </template>
 <script>
@@ -11,7 +11,7 @@ export default {
     components: {
         SingleTeam
     },
-    props: ['teams'],
+    props: ['teams', 'searchTerm'],
 
     methods: {
         ...mapActions(['followTeam']),

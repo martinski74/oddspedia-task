@@ -8,8 +8,8 @@
                     {{ team.leagues.join(', ') }}
                 </div>
                 <div class="second-line">
-                    <span class="wrapper__team-name">{{ team.name }}</span> | <img src="./../assets/stadium.png"
-                        alt="stadium"> <span>{{ team.stadium }}</span>
+                    <span v-html="matchName(team.name)" class="wrapper__team-name"></span> | <img
+                        src="./../assets/stadium.png" alt="stadium"> <span>{{ team.stadium }}</span>
                 </div>
             </div>
         </div>
@@ -28,6 +28,9 @@ export default {
         team: {
             type: Object,
             required: true
+        },
+        searchTerm: {
+            type: String
         }
     },
     data() {
@@ -40,6 +43,11 @@ export default {
         selectTeam() {
             this.$emit('onSelect', this.team)
             this.isFollow = !this.isFollow
+        },
+        matchName(current) {
+            let reggie = new RegExp(this.searchTerm, "ig");
+            let found = current.search(reggie) !== -1;
+            return !found ? current : current.replace(reggie, '<span style="color:#00B1FF;">' + this.searchTerm + '</span>');
         }
     }
 }
@@ -49,6 +57,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .wrapper {
+
 
     &:hover {
         background-color: #F5F7F9;

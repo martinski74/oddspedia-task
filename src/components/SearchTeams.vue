@@ -7,7 +7,7 @@
             <img @click="resetInput" class="container__close" src="./../assets/close.svg" alt="close">
         </div>
         <div v-if="showResults" class="container__results">
-            <TeamsList :teams="filteredResults" />
+            <TeamsList :searchTerm="searchQuery" :teams="filteredResults" />
         </div>
         <div v-if="!isFound" class="container__no-results">
             <NoTeamsFound />
