@@ -55,6 +55,7 @@ export default {
     },
 
     methods: {
+        
         resetInput() {
             this.searchQuery = '';
         }

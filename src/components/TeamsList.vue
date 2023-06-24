@@ -1,5 +1,6 @@
 <template>
-    <div v-for="team in teams" :key="team.id" class="teamholder">
+    <div v-for="(team, index) in teams" :tabindex="index" :key="index" :class="{ active: selectedItemIndex === index }"
+        class="teamholder" @keyup.down="nextListItem(teams.length)" @keyup.up="previousListItem">
         <SingleTeam :team="team" :searchTerm="searchTerm" @onSelect="selectTeam" />
     </div>
 </template>
@@ -13,14 +14,46 @@ export default {
     },
     props: ['teams', 'searchTerm'],
 
+    data() {
+        return {
+            selectedItemIndex: -1
+        }
+    },
+
     methods: {
         ...mapActions(['followTeam']),
         selectTeam(team) {
             this.followTeam(team);
+        },
+        nextListItem(resultCount) {
+
+
+
+            if (this.selectedItemIndex < resultCount) {
+                this.selectedItemIndex += 1;
+                if (this.selectedItemIndex > resultCount - 1) {
+                    this.selectedItemIndex = 0
+                }
+            }
+        },
+        previousListItem() {
+            if (this.selectedItemIndex > 0) {
+                this.selectedItemIndex -= 1;
+            }
         }
-    }
+    },
+
 
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.active {
+    background-color: #F5F7F9;
+    outline: none;
+}
+
+.teamholder {
+    outline: none;
+}
+</style>

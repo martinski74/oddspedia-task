@@ -1,5 +1,8 @@
 <template>
-    <div class="wrapper" @mouseover="hover = true" @mouseleave="hover = false">
+    <div class="wrapper"
+            @mouseover="hover = true"
+            @mouseleave="hover = false"
+          >
         <div class="wrapper__info">
             <div :class="{ active: hover }" class="wrapper__img-holder"><img src="./../assets/team-placeholder.png"
                     alt="placeholder"></div>
@@ -37,9 +40,20 @@ export default {
         return {
             isFollow: false,
             hover: false,
+            selectedItemIndex: -1
         }
     },
     methods: {
+        nextListItem() {
+         debugger
+            console.log('keydow pressed');
+            // if (this.selectedItemIndex < index) {
+            //     this.selectedItemIndex++;
+            // }
+        },
+        previousListItem() {
+            console.log('keyUp');
+        },
         checkFirstLetterCapital(_string) {
             return /[A-Z]/.test(_string[0]);
         },
