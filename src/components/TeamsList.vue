@@ -1,6 +1,6 @@
 <template>
     <div v-for="(team, index) in teams" :tabindex="index" :key="index" :class="{ active: selectedItemIndex === index }"
-        class="teamholder" @keyup.down="nextListItem(teams.length)" @keyup.up="previousListItem">
+        class="teamholder" @keyup.down="nextListItem(teams.length)" @keyup.up="previousListItem" @click="selectItem(index)">
         <SingleTeam :team="team" :searchTerm="searchTerm" :selected="selectedItemIndex === index" @onSelect="selectTeam" />
     </div>
 </template>
@@ -39,6 +39,11 @@ export default {
             if (this.selectedItemIndex > 0) {
                 this.selectedItemIndex -= 1;
             }
+        },
+
+        selectItem(index) {
+            this.selectedItemIndex = -1;
+            this.selectedItemIndex = index
         }
     },
 
