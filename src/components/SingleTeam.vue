@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper" @mouseover="hover = true" @mouseleave="hover = false">
         <div class="wrapper__info">
-            <div :class="{ active: hover, active: selected }" class="wrapper__img-holder"><img
+            <div :class="[{ active: hover }, { active: selected }]" class="wrapper__img-holder"><img
                     src="./../assets/team-placeholder.png" alt="placeholder"></div>
             <div class="info">
                 <div class="first-line">
