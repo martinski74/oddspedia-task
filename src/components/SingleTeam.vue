@@ -1,11 +1,8 @@
 <template>
-    <div class="wrapper"
-            @mouseover="hover = true"
-            @mouseleave="hover = false"
-          >
+    <div class="wrapper" @mouseover="hover = true" @mouseleave="hover = false">
         <div class="wrapper__info">
-            <div :class="{ active: hover }" class="wrapper__img-holder"><img src="./../assets/team-placeholder.png"
-                    alt="placeholder"></div>
+            <div :class="{ active: hover, active: selected }" class="wrapper__img-holder"><img
+                    src="./../assets/team-placeholder.png" alt="placeholder"></div>
             <div class="info">
                 <div class="first-line">
                     {{ team.leagues.join(', ') }}
@@ -34,6 +31,9 @@ export default {
         },
         searchTerm: {
             type: String
+        },
+        selected: {
+            type: Boolean
         }
     },
     data() {
@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         nextListItem() {
-         debugger
+            debugger
             console.log('keydow pressed');
             // if (this.selectedItemIndex < index) {
             //     this.selectedItemIndex++;

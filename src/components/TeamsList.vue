@@ -1,7 +1,7 @@
 <template>
     <div v-for="(team, index) in teams" :tabindex="index" :key="index" :class="{ active: selectedItemIndex === index }"
         class="teamholder" @keyup.down="nextListItem(teams.length)" @keyup.up="previousListItem">
-        <SingleTeam :team="team" :searchTerm="searchTerm" @onSelect="selectTeam" />
+        <SingleTeam :team="team" :searchTerm="searchTerm" :selected="selectedItemIndex === index" @onSelect="selectTeam" />
     </div>
 </template>
 <script>
@@ -12,11 +12,12 @@ export default {
     components: {
         SingleTeam
     },
-    props: ['teams', 'searchTerm'],
+    props: ['teams', 'searchTerm', 'selected'],
 
     data() {
         return {
-            selectedItemIndex: -1
+            selectedItemIndex: -1,
+
         }
     },
 
@@ -26,8 +27,6 @@ export default {
             this.followTeam(team);
         },
         nextListItem(resultCount) {
-
-
 
             if (this.selectedItemIndex < resultCount) {
                 this.selectedItemIndex += 1;
