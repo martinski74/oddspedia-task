@@ -19,7 +19,13 @@ export default {
 
   },
   async created() {
-    await this.getTeams()
+    try {
+      await this.getTeams()
+    } catch (error) {
+      console.log(error.message);
+
+    }
+
 
   }
 
