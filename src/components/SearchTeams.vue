@@ -2,9 +2,9 @@
     <div class="container">
         <h2 class="container__search-heading">SEARCH TEAMS</h2>
         <div class="container__search">
-            <img class="container__icon-search" src="./../assets/search.svg" alt="serach">
+            <img class="container__icon-search" src="../assets/search.svg" alt=" serach">
             <input v-model="searchQuery" type="text" placeholder="Search for a team">
-            <img @click="resetInput" class="container__close" src="./../assets/close.svg" alt="close">
+            <img @click="resetInput" class="container__close" src="../assets/close.svg" alt="close">
         </div>
         <div v-if="showResults" class="container__results">
             <TeamsList :searchTerm="searchQuery" :teams="filteredResults" />

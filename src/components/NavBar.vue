@@ -1,7 +1,7 @@
 <template>
     <div class="outher">
         <div class="outher__avatar">
-            <img class="outher__img" src="./../assets/avatar.png" alt="user">
+            <img class="outher__img" src="../assets/avatar.png" alt="user">
             <div class="outher__name">
                 RichyRich
             </div>

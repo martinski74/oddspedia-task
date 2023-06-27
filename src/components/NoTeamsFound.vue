@@ -1,7 +1,7 @@
 <template>
     <div class="notresult">
         <div class="notresult">
-            <img src="./../assets/no-results.svg" alt="image">
+            <img src="../assets/no-results.svg" alt="image">
         </div>
         <div class="notresult">
             No Teams Found

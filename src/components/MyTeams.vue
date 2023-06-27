@@ -5,7 +5,7 @@
 
             <div v-for="team in selectedTeams" :key="team.id" class="container__results">
                 <div class="container__image">
-                    <img src="./../assets/team-placeholder.png" alt="team">
+                    <img src="../assets/team-placeholder.png" alt="team">
                 </div>
                 <div class="container__name">
                     {{ team.name }}

@@ -2,14 +2,14 @@
     <div class="wrapper" @mouseover="hover = true" @mouseleave="hover = false">
         <div class="wrapper__info">
             <div :class="[{ active: hover }, { active: selected }]" class="wrapper__img-holder"><img
-                    src="./../assets/team-placeholder.png" alt="placeholder"></div>
+                    src="../assets/team-placeholder.png" alt="placeholder"></div>
             <div class="info">
                 <div class="first-line">
                     {{ team.leagues.join(', ') }}
                 </div>
                 <div class="second-line">
                     <span v-html="matchName(team.name)" class="wrapper__team-name"></span> | <img
-                        src="./../assets/stadium.png" alt="stadium"> <span v-html="matchName(team.stadium)"></span>
+                        src="../assets/stadium.png" alt="stadium"> <span v-html="matchName(team.stadium)"></span>
                 </div>
             </div>
         </div>

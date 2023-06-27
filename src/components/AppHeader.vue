@@ -2,8 +2,8 @@
   <div class="navbar">
     <div class="navbar__inner">
       <div class="leftside">
-        <img class="navbar__left-arrow" src="./../assets/arrow-left.svg" alt="arrow-left">
-        <img class="navbar__logo-mobile" src="./../assets/logo-mobile.svg" alt="logo-mobile">
+        <img class="navbar__left-arrow" src="../assets/arrow-left.svg" alt="arrow-left">
+        <img class="navbar__logo-mobile" src="../assets/logo-mobile.svg" alt="logo-mobile">
         <img class="navbar__logo" src="./../assets/logo.png" alt="logo">
       </div>
       <div class="navbar__rightside">
