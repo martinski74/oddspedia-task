@@ -1,3 +1,5 @@
+## Open app live here: addspedia-task.netlify.app
+
 # oddspedia-task
 
 ## Project setup
