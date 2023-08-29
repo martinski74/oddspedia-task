@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2 class="container__search-heading">SEARCH TEAMS</h2>
+        <h2 class="container__search-heading">search teams</h2>
         <div class="container__search">
             <img class="container__icon-search" src="../assets/search.svg" alt=" serach">
             <input v-model="searchQuery" type="text" placeholder="Search for a team">
@@ -73,7 +73,7 @@ export default {
         color: #1A3150;
         font-weight: bold;
         font-style: italic;
-
+        text-transform: uppercase;
     }
 
     input[type=text] {

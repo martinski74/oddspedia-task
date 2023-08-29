@@ -9,10 +9,10 @@
         <div class="outher__level">Level 5</div>
         <ul class="outher__navigation">
             <li class="outher__nav-item">
-                <router-link to="/">MY TEAMS</router-link>
+                <router-link to="/">my teams</router-link>
             </li>
             <li class="outher__nav-item">
-                <router-link to="/about">ABOUT</router-link>
+                <router-link to="/about">about</router-link>
             </li>
         </ul>
     </div>
@@ -63,6 +63,7 @@
     a {
         text-decoration: none;
         color: #6F8CAA;
+        text-transform: uppercase;
     }
 
 
@@ -73,6 +74,7 @@
         border-bottom: 3px solid #00B1FF;
         padding-bottom: 9px;
     }
+
 
     &__name {
         font-size: 16px;

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2 class="container__heading">MY TEAMS</h2>
+        <h2 class="container__heading">my teams</h2>
         <div class="container__selected-teams" v-if="selectedTeams.length > 0">
 
             <div v-for="team in selectedTeams" :key="team.id" class="container__results">
@@ -42,6 +42,7 @@ export default {
         font-weight: bold;
         font-style: italic;
         margin-bottom: 16px;
+        text-transform: uppercase;
 
     }
 
