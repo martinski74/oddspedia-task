@@ -19,9 +19,6 @@
 </template>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.cdnfonts.com/css/montserrat');
-
 .outher {
     background-color: #112948;
     margin: 16px auto;

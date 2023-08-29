@@ -29,9 +29,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.cdnfonts.com/css/montserrat');
-
 .container {
     background-color: #FFFFFF;
     padding: 15px;

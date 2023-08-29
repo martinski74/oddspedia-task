@@ -10,8 +10,6 @@
 </template>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .notresult {
     text-align: center;
     font-family: 'Roboto';

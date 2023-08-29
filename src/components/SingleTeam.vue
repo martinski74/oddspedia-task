@@ -44,16 +44,7 @@ export default {
         }
     },
     methods: {
-        nextListItem() {
-            debugger
-            console.log('keydow pressed');
-            // if (this.selectedItemIndex < index) {
-            //     this.selectedItemIndex++;
-            // }
-        },
-        previousListItem() {
-            console.log('keyUp');
-        },
+
         checkFirstLetterCapital(_string) {
             return /[A-Z]/.test(_string[0]);
         },
@@ -75,8 +66,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .wrapper {
 
 

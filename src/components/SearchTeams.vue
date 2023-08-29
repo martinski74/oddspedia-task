@@ -39,17 +39,13 @@ export default {
         filteredResults() {
             return this.teams.filter(team =>
                 team.name.toLowerCase().startsWith(this.searchQuery.toLowerCase()) ||
-                team.stadium.toLowerCase().startsWith(this.searchQuery.toLowerCase())
+                team.stadium.toLowerCase().startsWith(this.searchQuery.toLowerCase()) ||
+                team.leagues.forEach(item => item.toLowerCase().startsWith(this.searchQuery.toLowerCase()))
             );
         }
     },
     watch: {
         filteredResults(newValue) {
-            // if (newValue.length === 0) {
-            //     this.isFound = false
-            // } else {
-            //     this.isFound = true
-            // }
             newValue.length === 0 ? this.isFound = false : this.isFound = true
         }
     },
@@ -65,9 +61,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.cdnfonts.com/css/montserrat');
-
 .container {
     background-color: #FFFFFF;
     padding: 15px;
