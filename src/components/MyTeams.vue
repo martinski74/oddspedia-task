@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2 class="container__hedaing">MY TEAMS</h2>
+        <h2 class="container__heading">MY TEAMS</h2>
         <div class="container__selected-teams" v-if="selectedTeams.length > 0">
 
             <div v-for="team in selectedTeams" :key="team.id" class="container__results">
@@ -35,7 +35,7 @@ export default {
     width: 600px;
     margin: 15px auto;
 
-    &__hedaing {
+    &__heading {
         font-size: 14px;
         font-family: 'Montserrat';
         color: #1A3150;
