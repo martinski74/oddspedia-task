@@ -8,15 +8,20 @@
       </div>
       <div class="navbar__rightside">
         <img src="./../assets/notification.svg" alt="ring">
-        <span class="navbar__not">2</span>
+        <span class="navbar__not">{{ selectedTeams.length }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+
+  computed: {
+    ...mapState(['selectedTeams'])
+  }
 
 }
 </script>
