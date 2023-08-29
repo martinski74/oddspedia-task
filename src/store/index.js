@@ -25,10 +25,16 @@ export default createStore({
     },
 
     async getTeams({ commit }) {
-      const res = await axios.get('https://run.mocky.io/v3/ef80523b-0474-4104-8fe6-fe92f8360b28')
 
-      commit('GET_TEAMS', res.data)
-      return res;
+      try {
+        const res = await axios.get('https://run.mocky.io/v3/ef80523b-0474-4104-8fe6-fe92f8360b28')
+        commit('GET_TEAMS', res.data)
+        return res;
+
+      } catch (error) {
+        console.error(error.message)
+      }
+
     }
   }
 })

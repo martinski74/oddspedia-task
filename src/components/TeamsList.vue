@@ -1,7 +1,14 @@
 <template>
-    <div v-for="(team, index) in teams" :tabindex="index" :key="index" :class="{ active: selectedItemIndex === index }"
-        class="teamholder" @keyup.down="nextListItem(teams.length)" @keyup.up="previousListItem" @click="selectItem(index)">
-        <SingleTeam :team="team" :searchTerm="searchTerm" :selected="selectedItemIndex === index" @onSelect="selectTeam" />
+    <div 
+        v-for="(team, index) in teams"
+        :tabindex="index" 
+        :key="index" 
+        :class="{ active: selectedItemIndex === index }"
+        class="teamholder" @keyup.down="nextListItem(teams.length)"
+        @keyup.up="previousListItem" @click="selectItem(index)">
+        <SingleTeam :team="team" 
+        :searchTerm="searchTerm" 
+        :selected="selectedItemIndex === index" @onSelect="selectTeam" />
     </div>
 </template>
 <script>
