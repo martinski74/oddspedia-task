@@ -1,5 +1,3 @@
-### Demo App https://addspedia-task.netlify.app
-
 
 # oddspedia-task
 
